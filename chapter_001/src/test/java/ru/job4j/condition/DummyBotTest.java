@@ -7,8 +7,7 @@ import static org.junit.Assert.assertThat;
 
 /**
  * Тестирование "глупого бота"
- *
- * @author Aleksey Pavlov (mailto:paalse@list.ru.ru)
+  * @author Aleksey Pavlov (mailto:paalse@list.ru.ru)
  */
 public class DummyBotTest {
     @Test
