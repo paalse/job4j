@@ -40,5 +40,15 @@ public class MaxTest {
         int result = maximum.max(2, 2);
         assertThat(result, is(2));
     }
+
+    /**
+     * Проверка поиска максимального числа из 3х чисел.
+     */
+    @Test
+    public void whenMaxOnThreeNumb() {
+        Max maximum = new Max();
+        int result = maximum.max(4, 2, 3);
+        assertThat(result, is(4));
+    }
 }
 
