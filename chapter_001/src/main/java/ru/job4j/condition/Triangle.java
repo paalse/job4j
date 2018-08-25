@@ -62,7 +62,7 @@ public class Triangle {
      * @return Да/Нет
      */
     private boolean exist(double ab, double ac, double bc) {
-        if ((ab > 0) && (ac > 0) && (bc > 0)) {
+        if (((ab + ac) > bc) && ((bc + ac) > ab) && ((ab + bc) > ac)) {
             return true;
         }
         return false;
