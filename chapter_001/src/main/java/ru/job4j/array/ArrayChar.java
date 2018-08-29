@@ -6,10 +6,10 @@ package ru.job4j.array;
  * @author Aleksey Pavlov (mailto:paalse@list.ru)
  */
 public class ArrayChar {
-    private String data;
+    private char[] data;
 
     public ArrayChar(String line) {
-        this.data = line;
+        this.data = line.toCharArray();
     }
 
     /**
@@ -20,8 +20,12 @@ public class ArrayChar {
      */
     public boolean startWith(String prefix) {
         boolean result = true;
-        if (!this.data.startsWith(prefix)) {
-            result = false;
+        char[] value = prefix.toCharArray();
+        for (int i = 0; i < value.length; i++) {
+            if (this.data[i] != value[i]) {
+                result = false;
+                break;
+            }
         }
         return result;
     }
