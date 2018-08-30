@@ -8,19 +8,16 @@ package ru.job4j.array;
 public class MatrixCheck {
     public boolean mono(boolean[][] data) {
         boolean result = true;
-        if (data.length > 2) {
-            boolean first = data[0][0];
-            for (int i = 0; i < data.length; i++) {
-                if ((data[i][i] != first) || (data[i][data.length - i - 1] != first)) {
-                    result = false;
-                }
-            }
-        } else {
-            if ((data[0][0] != data[1][1]) || (data[1][0] != data[0][1])) {
+        boolean first = data[0][0];
+        boolean second = data[0][0];
+        if ((data.length % 2) == 0) {
+            second = data[0][data.length - 1];
+        }
+        for (int i = 0; i < data.length; i++) {
+            if ((data[i][i] != first) || (data[i][data.length - i - 1] != second)) {
                 result = false;
             }
         }
-
         return result;
     }
 }
