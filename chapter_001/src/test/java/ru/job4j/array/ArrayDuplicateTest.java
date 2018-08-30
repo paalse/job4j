@@ -18,4 +18,13 @@ public class ArrayDuplicateTest {
         ArrayDuplicate arr = new ArrayDuplicate();
         assertThat(arr.remove(origin), is(expect));
     }
+
+    @Test
+    public void whenRemoveDuplicatesThenArrayWithAllDuplicate() {
+        ArrayDuplicate arrayDuplicate = new ArrayDuplicate();
+        String[] value = new String[] {"Мир", "Мир", "Мир", "Мир", "Мир"};
+        String[] expected = new String[] {"Мир"};
+        String[] res = arrayDuplicate.remove(value);
+        assertThat(res, is(expected));
+    }
 }

@@ -11,10 +11,14 @@ public class ArrayDuplicate {
     public String[] remove(String[] array) {
         int dup = 0;
         for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length - dup; j++) {
+            for (int j = i + 1; j < array.length - dup;) {
                 if (array[i].equals(array[j])) {
-                    array[j] = array[array.length - dup - 1];
+                    if (!array[array.length - dup - 1].equals(array[i])) {
+                        array[j] = array[array.length - dup - 1];
+                    }
                     dup++;
+                } else {
+                    j++;
                 }
             }
         }
