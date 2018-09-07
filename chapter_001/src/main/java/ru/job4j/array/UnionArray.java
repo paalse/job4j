@@ -1,18 +1,30 @@
 package ru.job4j.array;
 
-import java.util.Arrays;
-
 /**
- * Программа объединения массивов с сортировкой.
+ * Программа объединения двух отсортированных по возрастанию массивов
+ * с сохранением сортировки.
  *
  * @author Aleksey Pavlov (mailto:paalse@list.ru)
  */
 public class UnionArray {
     public int[] union(int[] arr1, int[] arr2) {
-        int[] result = new int[arr1.length + arr2.length];
-        System.arraycopy(arr1, 0, result, 0, arr1.length);
-        System.arraycopy(arr2, 0, result, arr1.length, arr2.length);
-        Arrays.sort(result);
-        return result;
+        int[] arr3 = new int[arr1.length + arr2.length];
+        int i = 0, j = 0;
+        for (int k = 0; k < arr3.length; k++) {
+            if (i > arr1.length - 1) {
+                arr3[k] = arr2[j];
+                j++;
+            } else if (j > arr2.length - 1) {
+                arr3[k] = arr1[i];
+                i++;
+            } else if (arr1[i] < arr2[j]) {
+                arr3[k] = arr1[i];
+                i++;
+            } else {
+                arr3[k] = arr2[j];
+                j++;
+            }
+        }
+        return arr3;
     }
 }
