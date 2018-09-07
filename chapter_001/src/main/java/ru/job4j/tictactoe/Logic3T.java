@@ -10,16 +10,16 @@ public class Logic3T {
     /**
      * Проверка строк.
      *
-     * @param xo true - проверка по Х, false - проверка по O.
+     * @param val true - проверка по Х, false - проверка по O.
      * @return true - если заполнена линия, false - если линия не заполнена.
      */
-    public boolean fillGoriz(boolean xo) {
+    public boolean checkRowFill(boolean val) {
         boolean res = false;
         for (int i = 0; i < this.table.length; i++) {
             int count = 0;
             for (int j = 0; j < this.table.length; j++) {
 
-                if (xo) {
+                if (val) {
                     if (this.table[i][j].hasMarkX()) {
                         count++;
                     }
@@ -40,16 +40,16 @@ public class Logic3T {
     /**
      * Проверка столбцов.
      *
-     * @param xo true - проверка по Х, false - проверка по O.
+     * @param val true - проверка по Х, false - проверка по O.
      * @return true - если заполнена линия, false - если линия не заполнена.
      */
-    public boolean fillVert(boolean xo) {
+    public boolean checkColumnFill(boolean val) {
         boolean res = false;
         for (int i = 0; i < this.table.length; i++) {
             int count = 0;
             for (int j = 0; j < this.table.length; j++) {
 
-                if (xo) {
+                if (val) {
                     if (this.table[j][i].hasMarkX()) {
                         count++;
                     }
@@ -70,15 +70,14 @@ public class Logic3T {
     /**
      * Проверка диагоналей.
      *
-     * @param xo true - проверка по Х, false - проверка по O.
+     * @param val true - проверка по Х, false - проверка по O.
      * @return true - если заполнена линия, false - если линия не заполнена.
      */
-    public boolean fillDiag(boolean xo) {
-        boolean res = false;
+    public boolean checkDiagonalFill(boolean val) {
         int count1 = 0;
         int count2 = 0;
         for (int i = 0; i < this.table.length; i++) {
-            if (xo) {
+            if (val) {
                 if (this.table[i][i].hasMarkX()) {
                     count1++;
                 }
@@ -94,16 +93,25 @@ public class Logic3T {
                 }
             }
         }
-        if ((count1 == this.table.length) || (count2 == this.table.length)) res = true;
-        return res;
+        return (count1 == this.table.length) || (count2 == this.table.length);
     }
 
+    /**
+     * Проверка победы крестиков.
+     *
+     * @return true - крестики победили.
+     */
     public boolean isWinnerX() {
-        return fillGoriz(true) || fillVert(true) || fillDiag(true);
+        return checkRowFill(true) || checkColumnFill(true) || checkDiagonalFill(true);
     }
 
+    /**
+     * Проверка победы ноликов.
+     *
+     * @return true - нолики победили.
+     */
     public boolean isWinnerO() {
-        return fillGoriz(false) || fillVert(false) || fillDiag(false);
+        return checkRowFill(false) || checkColumnFill(false) || checkDiagonalFill(false);
     }
 
     /**
@@ -117,8 +125,10 @@ public class Logic3T {
             for (int j = 0; j < this.table.length; j++) {
                 if (this.table[i][j].hasMarkX() == this.table[i][j].hasMarkO()) {
                     res = true;
+                    break;
                 }
             }
+            if (res) break;
         }
         return res;
     }
