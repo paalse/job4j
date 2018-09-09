@@ -18,7 +18,6 @@ public class Logic3T {
         for (int i = 0; i < this.table.length; i++) {
             int count = 0;
             for (int j = 0; j < this.table.length; j++) {
-
                 if (val) {
                     if (this.table[i][j].hasMarkX()) {
                         count++;
@@ -48,7 +47,6 @@ public class Logic3T {
         for (int i = 0; i < this.table.length; i++) {
             int count = 0;
             for (int j = 0; j < this.table.length; j++) {
-
                 if (val) {
                     if (this.table[j][i].hasMarkX()) {
                         count++;
@@ -128,7 +126,9 @@ public class Logic3T {
                     break;
                 }
             }
-            if (res) break;
+            if (res) {
+                break;
+            }
         }
         return res;
     }
