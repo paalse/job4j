@@ -12,17 +12,13 @@ public class UnionArray {
         int i = 0, j = 0;
         for (int k = 0; k < arr3.length; k++) {
             if (i > arr1.length - 1) {
-                arr3[k] = arr2[j];
-                j++;
+                arr3[k] = arr2[j++];
             } else if (j > arr2.length - 1) {
-                arr3[k] = arr1[i];
-                i++;
+                arr3[k] = arr1[i++];
             } else if (arr1[i] < arr2[j]) {
-                arr3[k] = arr1[i];
-                i++;
+                arr3[k] = arr1[i++];
             } else {
-                arr3[k] = arr2[j];
-                j++;
+                arr3[k] = arr2[j++];
             }
         }
         return arr3;
