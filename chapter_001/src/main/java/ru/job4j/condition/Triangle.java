@@ -13,9 +13,9 @@ public class Triangle {
     /**
      * Конструктор класса.
      *
-     * @param a
-     * @param b
-     * @param c
+     * @param a - точка А.
+     * @param b - точка B.
+     * @param c - точка С.
      */
     public Triangle(Point a, Point b, Point c) {
         this.a = a;
@@ -42,15 +42,15 @@ public class Triangle {
      * @return Вернуть прощадь, если треугольник существует или -1, если треугольника нет.
      */
     public double area() {
-        double rsl = -1; // мы устанавливаем значение -1, так как может быть что треугольника нет. Это значение говорит о том. что треугольника нет.
+        double result = -1; // мы устанавливаем значение -1, так как может быть что треугольника нет. Это значение говорит о том. что треугольника нет.
         double ab = this.a.distanceTo(this.b);
         double ac = this.a.distanceTo(this.c);
         double bc = this.b.distanceTo(this.c);
         double p = this.period(ab, ac, bc);
         if (this.exist(ab, ac, bc)) {
-            rsl = Math.sqrt(p * (p - ab) * (p - ac) * (p - bc));
+            result = Math.sqrt(p * (p - ab) * (p - ac) * (p - bc));
         }
-        return rsl;
+        return result;
     }
 
     /**
@@ -62,10 +62,6 @@ public class Triangle {
      * @return Да/Нет
      */
     private boolean exist(double ab, double ac, double bc) {
-        if (((ab + ac) > bc) && ((bc + ac) > ab) && ((ab + bc) > ac)) {
-            return true;
-        }
-        return false;
+        return ((ab + ac) > bc) && ((bc + ac) > ab) && ((ab + bc) > ac);
     }
 }
-

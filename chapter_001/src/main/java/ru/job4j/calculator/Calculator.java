@@ -6,7 +6,6 @@ package ru.job4j.calculator;
  * @author Aleksey Pavlov (mailto:paalse@list.ru)
  */
 public class Calculator {
-
     private double result;
 
     /**

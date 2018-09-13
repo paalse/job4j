@@ -15,11 +15,9 @@ public class Paint {
      * @return - строка с пирамидой.
      */
     public String rightTrl(int height) {
-        return this.loopBy(
+        return this.loopBy(height,
                 height,
-                height,
-                (row, column) -> row >= column
-        );
+                (row, column) -> row >= column);
     }
 
     /**
@@ -32,8 +30,7 @@ public class Paint {
         return this.loopBy(
                 height,
                 height,
-                (row, column) -> row >= height - column - 1
-        );
+                (row, column) -> row >= height - column - 1);
     }
 
     /**
@@ -46,10 +43,8 @@ public class Paint {
         return this.loopBy(
                 height,
                 2 * height - 1,
-                (row, column) -> row >= height - column - 1 && row + height - 1 >= column
-        );
+                (row, column) -> row >= height - column - 1 && row + height - 1 >= column);
     }
-
 
     /**
      * @param height  - высота.

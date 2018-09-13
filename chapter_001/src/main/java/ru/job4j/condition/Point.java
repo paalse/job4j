@@ -1,6 +1,5 @@
 package ru.job4j.condition;
 
-
 /**
  * Программа расчета расстояния между точками.
  *
@@ -13,8 +12,8 @@ public class Point {
     /**
      * Конструктор.
      *
-     * @param x
-     * @param y
+     * @param x - значение координаты Х.
+     * @param y - значение координаты Y.
      */
     public Point(int x, int y) {
         this.x = x;
@@ -24,8 +23,8 @@ public class Point {
     /**
      * Расчет расстояния между точками.
      *
-     * @param that
-     * @return
+     * @param that - координаты точек.
+     * @return - расстояние между точками.
      */
     public double distanceTo(Point that) {
         return Math.sqrt(
@@ -36,7 +35,7 @@ public class Point {
     /**
      * Main.
      *
-     * @param args
+     * @param args - аргументы.
      */
     public static void main(String[] args) {
         Point a = new Point(0, 1);
