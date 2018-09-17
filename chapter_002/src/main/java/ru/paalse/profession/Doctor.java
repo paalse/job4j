@@ -2,6 +2,11 @@ package ru.paalse.profession;
 
 public class Doctor extends Profession {
 
-	public void heal(Patient patient) {
+	public Doctor(String name) {
+		super(name, "Doctor"); 
+	}
+
+	public Diagnose heal(Patient patient) {
+		return patient.getDiagnose();
 	}
 }
