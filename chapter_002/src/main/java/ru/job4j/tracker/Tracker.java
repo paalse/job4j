@@ -43,32 +43,39 @@ public class Tracker {
 	 * @param id - id заявки, которую нужно изменить.
 	 * @param item - новое содержимое заявки.
 	 */
-	public void replace(String id, Item item) {
+	public boolean replace(String id, Item item) {
+		boolean result = false;
 		if (id != null) {
 			for (int i = 0; i < this.items.length; i++) {
 				if (this.items[i].getId().equals(id)) {
 					this.items[i] = item;
+					this.items[i].setId(id);
+					result = true;
 					break;
 				}
 			}
 		}
+		return result;
 	}
 		
 	/**
 	 * Метод удаляет заявку.
 	 * @param id - id заявки.
 	 */
-	public void delete(String id) {
+	public boolean delete(String id) {
+		boolean result = false;
 		if (id != null) {
 			for (int i = 0; i < this.items.length; i++) {
 				if (this.items[i].getId().equals(id)) {
 					this.items[i] = null;
 					System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i - 1);
 					position--;
+					result = true;
 					break;
 				}
 			}	
 		}
+		return result;
 	}
 		
 	/**
@@ -76,13 +83,7 @@ public class Tracker {
 	 * @return - все заявки.
 	 */
 	public Item[] findAll() {
-		int cnt = 0;
-		for (int i = 0; i < this.items.length; i++) {
-			if (this.items[i] != null) { 
-				cnt++;
-			}
-		}
-		return Arrays.copyOf(this.items, cnt);
+		return Arrays.copyOf(this.items, this.position);
 	}
 	
 	/**
@@ -93,14 +94,10 @@ public class Tracker {
 	public Item[] findByName(String name) {
 		Item[] result = new Item[this.items.length];
 		int cnt = 0;
-		for (int i = 0; i < this.items.length; i++) {
-			if (this.items[i] != null) {
-				if (this.items[i].getName().equals(name)) {
-					result[cnt] = this.items[i];
-					cnt++;
-				}
-			} else { 
-				break; 
+		for (int i = 0; i < this.position; i++) {
+			if (this.items[i].getName().equals(name)) {
+				result[cnt] = this.items[i];
+				cnt++;
 			}
 		}
 		return Arrays.copyOf(result, cnt);
@@ -113,16 +110,10 @@ public class Tracker {
 	 */
 	public Item findById(String id) {
 		Item result = null;
-		if (id != null) {		
-			for (Item element: this.items) {
-				if (element != null) {
-					if (element.getId().equals(id)) {
-						result = element;
-						break;
-					}
-				} else {
-					break;
-				}
+		for (int i = 0; i < this.position; i++) {
+			if (this.items[i].getId().equals(id)) {
+				result = this.items[i];
+				break;
 			}
 		}
 		return result;
