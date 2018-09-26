@@ -115,8 +115,12 @@ public class Tracker {
 		Item result = null;
 		if (id != null) {		
 			for (Item element: this.items) {
-				if (element.getId().equals(id)) {
-					result = element;
+				if (element != null) {
+					if (element.getId().equals(id)) {
+						result = element;
+						break;
+					}
+				} else {
 					break;
 				}
 			}

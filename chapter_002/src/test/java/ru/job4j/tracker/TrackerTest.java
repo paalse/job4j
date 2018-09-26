@@ -106,4 +106,16 @@ public class TrackerTest {
 		tracker.add(third);
 		assertThat(tracker.findById(second.getId()), is(second));
 	}
+	
+	/**
+	 * Проверка поиска заявки по Id, в случае если заявки нет.
+	 */
+	 @Test
+	public void whenFindByIdNull() {
+		Tracker tracker = new Tracker();
+		Item first = new Item("test1", "testDescription1", 123L);
+		tracker.add(first);
+		Item expected = null;
+		assertThat(tracker.findById("567qwerty"), is(expected));
+	}
 }
