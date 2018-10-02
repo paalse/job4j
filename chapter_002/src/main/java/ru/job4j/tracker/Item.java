@@ -1,5 +1,9 @@
 package ru.job4j.tracker;
 
+/**
+ * Класс лописывающий заявку.
+ * @author Aleksey Pavlov (mailto:paalse@list.ru) 
+ */
 public class Item {
 	private String id;
 	private String name;
@@ -24,6 +28,18 @@ public class Item {
 		this.desc = desc;
 		this.created = created;
 	}
+	
+	/**
+	 * Конструктор с параметрами.
+	 * @param name - имя заявки.
+	 * @param desc - описание заявки.
+	 */
+	public Item(String name, String desc) {
+		this.name = name;
+		this.desc = desc;
+		this.created = System.currentTimeMillis();
+	}
+	
 	
 	/**
 	 * Метод получания id заявки.

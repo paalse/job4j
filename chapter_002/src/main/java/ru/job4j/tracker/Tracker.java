@@ -46,7 +46,7 @@ public class Tracker {
 	public boolean replace(String id, Item item) {
 		boolean result = false;
 		if (id != null) {
-			for (int i = 0; i < this.items.length; i++) {
+			for (int i = 0; i < this.position; i++) {
 				if (this.items[i].getId().equals(id)) {
 					this.items[i] = item;
 					this.items[i].setId(id);
@@ -65,7 +65,7 @@ public class Tracker {
 	public boolean delete(String id) {
 		boolean result = false;
 		if (id != null) {
-			for (int i = 0; i < this.items.length; i++) {
+			for (int i = 0; i < this.position; i++) {
 				if (this.items[i].getId().equals(id)) {
 					this.items[i] = null;
 					System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i - 1);
