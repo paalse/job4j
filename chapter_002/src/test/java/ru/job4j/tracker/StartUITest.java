@@ -15,7 +15,18 @@ import static org.junit.Assert.assertThat;
 public class StartUITest {
     private final PrintStream stdout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-
+	private final String menu = new StringBuilder()
+                .append(System.lineSeparator() + "--------- Menu ---------" + System.lineSeparator())
+                .append("0. Create new item" + System.lineSeparator())
+                .append("1. Edit item" + System.lineSeparator())
+                .append("2. Delete item" + System.lineSeparator())
+                .append("3. Show all items" + System.lineSeparator())
+                .append("4. Find item by Id" + System.lineSeparator())
+                .append("5. Find items by name" + System.lineSeparator())
+                .append("6. Exit Program" + System.lineSeparator())
+                .append("------------------------" + System.lineSeparator())
+				.toString();
+	
     /**
      * Метод выполняется до начала теста.
      */
@@ -131,28 +142,11 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         String result = new String(out.toByteArray());
         String expected = new StringBuilder()
-                .append(System.lineSeparator() + "--------- Menu ---------" + System.lineSeparator())
-                .append("0. Create new item" + System.lineSeparator())
-                .append("1. Edit item" + System.lineSeparator())
-                .append("2. Delete item" + System.lineSeparator())
-                .append("3. Show all items" + System.lineSeparator())
-                .append("4. Find item by Id" + System.lineSeparator())
-                .append("5. Find items by name" + System.lineSeparator())
-                .append("6. Exit Program" + System.lineSeparator())
-                .append("------------------------" + System.lineSeparator())
+                .append(menu)
                 .append(System.lineSeparator() + "------------ Поиск заявки по ID --------------" + System.lineSeparator())
                 .append(String.format("%s\t%s\t%s\t%tD %tT", item1.getId(), item1.getName(), item1.getDesc(), item1.getCreated(), item1.getCreated()) + System.lineSeparator())
                 .append("----------------------------------------------" + System.lineSeparator())
-                .append(System.lineSeparator() + "--------- Menu ---------" + System.lineSeparator())
-                .append("0. Create new item" + System.lineSeparator())
-                .append("1. Edit item" + System.lineSeparator())
-                .append("2. Delete item" + System.lineSeparator())
-                .append("3. Show all items" + System.lineSeparator())
-                .append("4. Find item by Id" + System.lineSeparator())
-                .append("5. Find items by name" + System.lineSeparator())
-                .append("6. Exit Program" + System.lineSeparator())
-                .append("------------------------")
-                .append(System.lineSeparator())
+                .append(menu)
                 .toString();
         assertThat(result, is(expected));
     }
@@ -170,30 +164,13 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         String result = new String(out.toByteArray());
         String expected = new StringBuilder()
-                .append(System.lineSeparator() + "--------- Menu ---------" + System.lineSeparator())
-                .append("0. Create new item" + System.lineSeparator())
-                .append("1. Edit item" + System.lineSeparator())
-                .append("2. Delete item" + System.lineSeparator())
-                .append("3. Show all items" + System.lineSeparator())
-                .append("4. Find item by Id" + System.lineSeparator())
-                .append("5. Find items by name" + System.lineSeparator())
-                .append("6. Exit Program" + System.lineSeparator())
-                .append("------------------------" + System.lineSeparator())
+                .append(menu)
                 .append(System.lineSeparator() + "------------ Отображение всех заявок --------------" + System.lineSeparator())
                 .append(String.format("%s\t%s\t%s\t%tD %tT", item.getId(), item.getName(), item.getDesc(), item.getCreated(), item.getCreated()) + System.lineSeparator())
                 .append(String.format("%s\t%s\t%s\t%tD %tT", item1.getId(), item1.getName(), item1.getDesc(), item1.getCreated(), item1.getCreated()) + System.lineSeparator())
                 .append(String.format("%s\t%s\t%s\t%tD %tT", item2.getId(), item2.getName(), item2.getDesc(), item2.getCreated(), item2.getCreated()) + System.lineSeparator())
                 .append("---------------------------------------------------" + System.lineSeparator())
-                .append(System.lineSeparator() + "--------- Menu ---------" + System.lineSeparator())
-                .append("0. Create new item" + System.lineSeparator())
-                .append("1. Edit item" + System.lineSeparator())
-                .append("2. Delete item" + System.lineSeparator())
-                .append("3. Show all items" + System.lineSeparator())
-                .append("4. Find item by Id" + System.lineSeparator())
-                .append("5. Find items by name" + System.lineSeparator())
-                .append("6. Exit Program" + System.lineSeparator())
-                .append("------------------------")
-                .append(System.lineSeparator())
+                .append(menu)
                 .toString();
         assertThat(result, is(expected));
     }
