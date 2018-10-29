@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.*;
+
 public class StubInput implements Input {
     /**
      * Это поле содержит последовательность ответов пользователя.
@@ -30,8 +32,25 @@ public class StubInput implements Input {
      * Для этого при каждом вызове метода ask мы увеличиваем счетчик и 
      * при следующем вызове он вернет нам новое значение.
      */
+
     @Override
     public String ask(String question) {
         return this.value[this.position++];
+    }
+
+    @Override
+    public int ask(String question, List<Integer> range) {
+        int key = Integer.valueOf(this.ask(question));
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (!exist) {
+            throw new MenuOutException("Пункт отсутствует в меню.");
+        }
+        return key;
     }
 }
