@@ -29,9 +29,8 @@ public class Logic {
      * @param dest типа Cell
      * @return результат перемещения типа boolean
      */
-    public boolean move(Cell source, Cell dest) {
+    public boolean move(Cell source, Cell dest) throws ImposibleMoveException, OccupiedWayException, FigureNotFoundException {
         boolean rst = false;
-        try {
             int index = this.findBy(source);
             Cell[] steps = this.figures[index].way(source, dest);
             for (Cell step : steps) {
@@ -43,14 +42,6 @@ public class Logic {
             }
             this.figures[index] = this.figures[index].copy(dest);
             rst = true;
-
-        } catch (ImposibleMoveException ime) {
-            System.out.println("Ошибка движения");
-        } catch (OccupiedWayException owe) {
-            System.out.println("Клетка занята другой фигурой");
-        } catch (FigureNotFoundException fnfe) {
-            System.out.println("Фигура не найдена");
-        }
         return rst;
     }
 
