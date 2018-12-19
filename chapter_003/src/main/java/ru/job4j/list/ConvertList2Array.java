@@ -25,8 +25,6 @@ public class ConvertList2Array {
             for(int data: innerArray) {
                 if ((i * cells + j) < list.size()) {
                     array[i][j] = list.get(i * cells + j);
-                } else {
-                    array[i][j] = 0;
                 }
                 j++;
             }
