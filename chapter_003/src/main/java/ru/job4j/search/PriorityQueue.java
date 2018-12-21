@@ -1,8 +1,8 @@
 package ru.job4j.search;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
+
 
 public class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
@@ -14,14 +14,14 @@ public class PriorityQueue {
      * @param task задача
      */
     public void put(Task task) {
-        int n = tasks.size();
-        for (Task element : tasks) {
-            if(element.getPriority() > task.getPriority()) {
-                n = tasks.indexOf(element);
+        int count = 0;
+        while (count != tasks.size()) {
+            if(tasks.get(count).getPriority() > task.getPriority()) {
                 break;
             }
+            count++;
         }
-        tasks.add(n, task);
+        tasks.add(count, task);
     }
 
     public Task take() {
