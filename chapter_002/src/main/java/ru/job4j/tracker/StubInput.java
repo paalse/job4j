@@ -12,7 +12,7 @@ public class StubInput implements Input {
      * desc - описание заявки
      * y - выйти из трекера.
      */
-    private final String[] value;
+    private ArrayList<String> value;
 
     /**
      * Поле считает количество вызовом метода ask.
@@ -20,7 +20,7 @@ public class StubInput implements Input {
      */
     private int position;
 
-    public StubInput(final String[] value) {
+    public StubInput(ArrayList<String> value) {
         this.value = value;
     }
 
@@ -29,13 +29,13 @@ public class StubInput implements Input {
      * у нас есть объект в котором содержатся заранее продуманные ответы.
      * При последовательном вызове метода ask нам надо возвращать соответствующие данные.
      * Как если бы мы симулировали поведение пользователя.
-     * Для этого при каждом вызове метода ask мы увеличиваем счетчик и 
+     * Для этого при каждом вызове метода ask мы увеличиваем счетчик и
      * при следующем вызове он вернет нам новое значение.
      */
 
     @Override
     public String ask(String question) {
-        return this.value[this.position++];
+        return this.value.get(this.position++);
     }
 
     @Override

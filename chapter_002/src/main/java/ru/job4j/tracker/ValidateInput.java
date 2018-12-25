@@ -4,9 +4,9 @@ import java.util.List;
 
 public class ValidateInput implements Input {
 
-    private final Input input;
+    private Input input;
 
-    public ValidateInput(final Input input) {
+    public ValidateInput(Input input) {
         this.input = input;
     }
 
@@ -14,7 +14,6 @@ public class ValidateInput implements Input {
     public String ask(String question) {
         return this.input.ask(question);
     }
-
 
     public int ask(String question, List<Integer> range) {
         boolean invalid = true;
@@ -29,6 +28,6 @@ public class ValidateInput implements Input {
                 System.out.println("Пожалуйста введите корректное значение.");
             }
         } while (invalid);
-        return  value;
+        return value;
     }
 }
