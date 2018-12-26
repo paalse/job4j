@@ -1,11 +1,5 @@
 package ru.job4j.sort;
 
-import ru.job4j.lite.ListExampleGenerics;
-
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-
 /**
  * Пользователь, с переопределением compareTo
  *
