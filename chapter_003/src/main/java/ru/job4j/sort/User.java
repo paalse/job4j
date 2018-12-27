@@ -1,5 +1,7 @@
 package ru.job4j.sort;
 
+import java.util.Comparator;
+
 /**
  * Пользователь, с переопределением compareTo
  *
@@ -28,6 +30,11 @@ public class User implements Comparable<User> {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + this.name + ", " + this.age + "]" ;
     }
 
     @Override

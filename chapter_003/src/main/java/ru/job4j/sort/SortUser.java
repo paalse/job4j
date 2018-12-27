@@ -30,7 +30,7 @@ public class SortUser {
         list.sort(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
-                return o1.getName().length() >= o2.getName().length() ? 1 : -1;
+                return o1.getName().length() - o2.getName().length();
             }
         });
         return list;
@@ -45,7 +45,8 @@ public class SortUser {
         list.sort(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
-                return o1.compareTo(o2);
+                int flag = o1.getName().compareTo(o2.getName());
+                return flag != 0 ? flag : o1.getAge().compareTo(o2.getAge());
             }
         });
         return list;
