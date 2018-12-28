@@ -13,8 +13,12 @@ public class ListExampleGenerics {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
             User user = (User) o;
             return Objects.equals(name, user.name);
         }
@@ -66,5 +70,4 @@ public class ListExampleGenerics {
         System.out.println("--------Еще более сокращенный вывод-------------");
         users.forEach(System.out::println);
     }
-
 }

@@ -6,7 +6,7 @@ import java.util.List;
 //import static java.lang.String.format;
 
 public class ListExample {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         List<Integer> myList = new ArrayList<>();
         myList.add(456);
         System.out.println(myList.get(0));
