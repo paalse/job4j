@@ -26,7 +26,7 @@ public class ListExampleGenerics {
 
         @Override
         public String toString() {
-            return "User {name'" + name + '\'' +"}";
+            return "User {name'" + name + '\'' + "}";
         }
     }
 
@@ -48,7 +48,7 @@ public class ListExampleGenerics {
         System.out.println(it.next());
         System.out.println(it.next());
     */
-        while(it.hasNext()) {
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
 
@@ -68,4 +68,3 @@ public class ListExampleGenerics {
     }
 
 }
-

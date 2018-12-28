@@ -34,7 +34,7 @@ public class User implements Comparable<User> {
 
     @Override
     public String toString() {
-        return "[" + this.name + ", " + this.age + "]" ;
+        return "[" + this.name + ", " + this.age + "]";
     }
 
     @Override

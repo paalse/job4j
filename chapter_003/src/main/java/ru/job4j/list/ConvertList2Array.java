@@ -16,6 +16,7 @@ public class ConvertList2Array {
 
     /**
      * Преобразование списка в массив
+     *
      * @param list - список
      * @param rows - кол-во строк создаваемого массива
      * @return - массив
@@ -33,9 +34,9 @@ public class ConvertList2Array {
         }
         int[][] array = new int[rows][cells];
         int i = 0;
-        for (int[] innerArray: array) {
+        for (int[] innerArray : array) {
             int j = 0;
-            for(int data: innerArray) {
+            for (int data : innerArray) {
                 if ((i * cells + j) < list.size()) {
                     array[i][j] = list.get(i * cells + j);
                 }
@@ -48,10 +49,11 @@ public class ConvertList2Array {
 
     /**
      * Преобразование нескольких списка из нескольких массивов в один список
+     *
      * @param list
      * @return - список
      */
-    public List<Integer> convert (List<int[]> list) {
+    public List<Integer> convert(List<int[]> list) {
         List<Integer> result = new ArrayList<Integer>();
         for (int[] mass : list) {
             for (int element : mass) {
@@ -63,10 +65,11 @@ public class ConvertList2Array {
 
     /**
      * Преобразование нескольких списка из нескольких массивов в один список
+     *
      * @param list
      * @return - список
      */
-    public List<Integer> convert1 (List<int[]> list) {
+    public List<Integer> convert1(List<int[]> list) {
         List<Integer> result = new ArrayList<Integer>();
         for (int[] mass : list) {
             result.addAll(Arrays.asList(ArrayUtils.toObject(mass)));

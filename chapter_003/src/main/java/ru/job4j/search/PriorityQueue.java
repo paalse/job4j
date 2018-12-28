@@ -11,12 +11,13 @@ public class PriorityQueue {
      * Метод должен вставлять в нужную позицию элемент.
      * Позиция определять по полю приоритет.
      * Для вставик использовать add(int index, E value)
+     *
      * @param task задача
      */
     public void put(Task task) {
         int count = 0;
         while (count != tasks.size()) {
-            if(tasks.get(count).getPriority() > task.getPriority()) {
+            if (tasks.get(count).getPriority() > task.getPriority()) {
                 break;
             }
             count++;

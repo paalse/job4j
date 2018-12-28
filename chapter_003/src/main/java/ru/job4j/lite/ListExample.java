@@ -11,7 +11,7 @@ public class ListExample {
         myList.add(456);
         System.out.println(myList.get(0));
 
-        myList.add(1,34);
+        myList.add(1, 34);
         System.out.println(myList.get(1));
 
         List<Integer> myList1 = new ArrayList<>();
@@ -30,7 +30,7 @@ public class ListExample {
 
         System.out.println("------");
         myList.add(456); // Дает возможность добавления дубликатов
-        for(Integer value : myList) {
+        for (Integer value : myList) {
             System.out.println(value);
         }
 
