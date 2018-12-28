@@ -1,7 +1,9 @@
 package ru.job4j.chess.firuges.black;
 
 import ru.job4j.chess.firuges.*;
+
 import java.util.Arrays;
+
 import static java.lang.Math.abs;
 
 /**

@@ -1,7 +1,9 @@
 package ru.job4j.chess.firuges.black;
 
 import ru.job4j.chess.firuges.*;
+
 import java.util.Arrays;
+
 import static java.lang.Math.abs;
 
 /**
@@ -14,6 +16,7 @@ public class BishopBlack implements Figure {
 
     /**
      * Конструктор
+     *
      * @param position - позиция фигуры
      */
     public BishopBlack(final Cell position) {
@@ -22,6 +25,7 @@ public class BishopBlack implements Figure {
 
     /**
      * Метод возвращает позицию фигуры
+     *
      * @return Cell
      */
     @Override
@@ -31,8 +35,9 @@ public class BishopBlack implements Figure {
 
     /**
      * Метод возвращает массив позиций передвижения фигуры
+     *
      * @param source типа Cell
-     * @param dest типа Cell
+     * @param dest   типа Cell
      * @return типа Cell[]
      */
     @Override
@@ -53,6 +58,7 @@ public class BishopBlack implements Figure {
 
     /**
      * Метод перемещает фигуру на новую позицию
+     *
      * @param dest - новая позиция фигуры
      */
     @Override

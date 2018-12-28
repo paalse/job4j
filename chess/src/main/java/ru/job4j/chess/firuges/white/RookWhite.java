@@ -1,7 +1,9 @@
 package ru.job4j.chess.firuges.white;
 
 import ru.job4j.chess.firuges.*;
+
 import java.util.Arrays;
+
 import static java.lang.Math.abs;
 
 /**
@@ -27,7 +29,7 @@ public class RookWhite implements Figure {
         int deltaX, deltaY;
         int absDeltaX = abs(dest.x - source.x);
         int absDeltaY = abs(dest.y - source.y);
-        if ((absDeltaX != 0) && (absDeltaY !=0)) {
+        if ((absDeltaX != 0) && (absDeltaY != 0)) {
             throw new ImposibleMoveException("Ладья так не ходит!");
         }
 
