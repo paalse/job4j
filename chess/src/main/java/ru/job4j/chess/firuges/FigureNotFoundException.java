@@ -5,7 +5,7 @@ package ru.job4j.chess.firuges;
  * @version $Id$
  * @since 0.1
  */
-public class FigureNotFoundException extends Exception{
+public class FigureNotFoundException extends Exception {
     public FigureNotFoundException(String msg) {
         System.out.println(msg);
     }
