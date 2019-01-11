@@ -75,7 +75,10 @@ public class Bank {
      * @param account - объект "Счет"
      */
     public void deleteAccountFromUser(String passport, Account account) {
-        this.bank.get(getUserByPasport(passport)).remove(account);
+        User user = getUserByPasport(passport);
+        if(user != null) {
+            this.bank.get(getUserByPasport(passport)).remove(account);
+        }
     }
 
     /**
@@ -114,6 +117,22 @@ public class Bank {
     }
 
     /**
+     * Получение счета по номеру паспорта и реквизиту
+     *
+     * @param passport - номер паспорта
+     * @param requisite - номер счета
+     * @return - объект "Счет"
+     */
+    public Account getAccountByPassportAndRequisite(String passport, String requisite) {
+        Account account = null;
+        User user = getUserByPasport(passport);
+        if(user != null) {
+            account = getAccountByRequisite(user, requisite);
+        }
+        return account;
+    }
+
+    /**
      * Метод для перечисления денег с одного счёта на другой счёт
      *
      * @param srcPassport - номер паспорта отправителя
@@ -125,17 +144,13 @@ public class Bank {
      */
     public boolean transferMoney(String srcPassport, String srcRequisite, String dstPassport, String dstRequisite, double amount) {
         boolean result = false;
-        User srcUser = getUserByPasport(srcPassport);
-        User dstUser = getUserByPasport(dstPassport);
-        if ((srcUser != null) && (dstUser != null)) {
-            Account srcAccount = getAccountByRequisite(srcUser, srcRequisite);
-            Account dstAccount = getAccountByRequisite(dstUser, dstRequisite);
-            if ((srcAccount != null) && (dstAccount != null)) {
-                if (srcAccount.getValue() >= amount) {
-                    srcAccount.setValue(srcAccount.getValue() - amount);
-                    dstAccount.setValue(dstAccount.getValue() + amount);
+        Account srcAccount = getAccountByPassportAndRequisite(srcPassport, srcRequisite);
+        Account dstAccount = getAccountByPassportAndRequisite(dstPassport, dstRequisite);
+        if ((srcAccount != null) && (dstAccount != null)) {
+            if (srcAccount.getValue() >= amount) {
+                srcAccount.setValue(srcAccount.getValue() - amount);
+                dstAccount.setValue(dstAccount.getValue() + amount);
                     result = true;
-                }
             }
         }
         return result;
