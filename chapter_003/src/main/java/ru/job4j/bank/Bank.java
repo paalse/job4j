@@ -53,7 +53,7 @@ public class Bank {
      * Добавить счёт пользователю
      *
      * @param passport - номер паспорта
-     * @param account - объект "Счет"
+     * @param account  - объект "Счет"
      */
     public void addAccountToUser(String passport, Account account) {
         int count = 0;
@@ -72,11 +72,11 @@ public class Bank {
      * Удалить один счёт пользователя
      *
      * @param passport - номер паспорта
-     * @param account - объект "Счет"
+     * @param account  - объект "Счет"
      */
     public void deleteAccountFromUser(String passport, Account account) {
         User user = getUserByPasport(passport);
-        if(user != null) {
+        if (user != null) {
             this.bank.get(getUserByPasport(passport)).remove(account);
         }
     }
@@ -84,7 +84,7 @@ public class Bank {
     /**
      * Получить счет по пользователю и реквизиту
      *
-     * @param user - объект "Пользователь"
+     * @param user      - объект "Пользователь"
      * @param requisite - номер счета
      * @return - объект "Счет"
      */
@@ -119,14 +119,14 @@ public class Bank {
     /**
      * Получение счета по номеру паспорта и реквизиту
      *
-     * @param passport - номер паспорта
+     * @param passport  - номер паспорта
      * @param requisite - номер счета
      * @return - объект "Счет"
      */
     public Account getAccountByPassportAndRequisite(String passport, String requisite) {
         Account account = null;
         User user = getUserByPasport(passport);
-        if(user != null) {
+        if (user != null) {
             account = getAccountByRequisite(user, requisite);
         }
         return account;
@@ -135,11 +135,11 @@ public class Bank {
     /**
      * Метод для перечисления денег с одного счёта на другой счёт
      *
-     * @param srcPassport - номер паспорта отправителя
+     * @param srcPassport  - номер паспорта отправителя
      * @param srcRequisite - номер счета отправителя
-     * @param dstPassport - номер паспорта получателя
+     * @param dstPassport  - номер паспорта получателя
      * @param dstRequisite - номер счета получателя
-     * @param amount - сумма перевода
+     * @param amount       - сумма перевода
      * @return - выполнен перевод или нет
      */
     public boolean transferMoney(String srcPassport, String srcRequisite, String dstPassport, String dstRequisite, double amount) {
@@ -150,7 +150,7 @@ public class Bank {
             if (srcAccount.getValue() >= amount) {
                 srcAccount.setValue(srcAccount.getValue() - amount);
                 dstAccount.setValue(dstAccount.getValue() + amount);
-                    result = true;
+                result = true;
             }
         }
         return result;
