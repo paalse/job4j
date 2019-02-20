@@ -14,18 +14,34 @@ public class Student {
         this.score = score;
     }
 
+    /**
+     * Получение имени
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Установка имени
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Получение баллов
+     * @return
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * Установка баллов
+     * @param score
+     */
     public void setScore(int score) {
         this.score = score;
     }

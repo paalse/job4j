@@ -14,6 +14,9 @@ import static org.hamcrest.core.Is.is;
  * @author Aleksey Pavlov (mailto:paalse@list.ru)
  */
 public class SchoolTest {
+    /**
+     * Тестирование группы A
+     */
     @Test
     public void whenA() {
         School my = new School();
@@ -35,6 +38,9 @@ public class SchoolTest {
         assertThat(result, is(expected));
     }
 
+    /**
+     * Тестирование группы B
+     */
     @Test
     public void whenB() {
         School my = new School();
@@ -55,6 +61,9 @@ public class SchoolTest {
         assertThat(result, is(expected));
     }
 
+    /**
+     * Тестирование группы C
+     */
     @Test
     public void whenC() {
         School my = new School();
