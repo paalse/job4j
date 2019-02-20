@@ -13,9 +13,9 @@ public class School {
     /**
      *
      *  Метод позволяет выбрать группы студентов по оценкам
-     * @param students
-     * @param predicate
-     * @return
+     * @param students - список студентов
+     * @param predicate - лямбда-выражение для ограничения выборки
+     * @return - выборка студентов отфильтрованная по ламбда-выражению
      */
     public List<Student> collect(List<Student> students, Predicate<Student> predicate) {
         return students.stream()
