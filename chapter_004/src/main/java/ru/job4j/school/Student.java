@@ -6,6 +6,7 @@ package ru.job4j.school;
  * @author Aleksey Pavlov (mailto:paalse@list.ru)
  */
 public class Student {
+    private String family;
     private String name;
     private Integer score;
 
@@ -14,8 +15,33 @@ public class Student {
         this.score = score;
     }
 
+    public Student(String family, String name, Integer score) {
+        this.family = family;
+        this.name = name;
+        this.score = score;
+    }
+
+    /**
+     * Получение фамилии
+     *
+     * @return
+     */
+    public String getFamily() {
+        return family;
+    }
+
+    /**
+     * Установка фамилии
+     *
+     * @return
+     */
+    public void setFamily(String family) {
+        this.family = family;
+    }
+
     /**
      * Получение имени
+     *
      * @return
      */
     public String getName() {
@@ -24,6 +50,7 @@ public class Student {
 
     /**
      * Установка имени
+     *
      * @param name
      */
     public void setName(String name) {
@@ -32,6 +59,7 @@ public class Student {
 
     /**
      * Получение баллов
+     *
      * @return
      */
     public int getScore() {
@@ -40,6 +68,7 @@ public class Student {
 
     /**
      * Установка баллов
+     *
      * @param score
      */
     public void setScore(int score) {
@@ -49,6 +78,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student{"
+                + "family='" + family + '\''
                 + "name='" + name + '\''
                 + ", score=" + score
                 + '}';
