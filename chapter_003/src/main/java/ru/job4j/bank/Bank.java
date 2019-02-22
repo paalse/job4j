@@ -1,9 +1,7 @@
 package ru.job4j.bank;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Банковские переводы
@@ -37,16 +35,10 @@ public class Bank {
      * @return объект "Пользователь"
      */
     public User getUserByPasport(String passport) {
-        User result = null;
-        Set<User> users = this.bank.keySet();
-        //  if (users.size()!=0) {
-        for (User user : users) {
-            if (user.getPassport().equals(passport)) {
-                result = user;
-                break;
-            }
-        }
-        return result;
+        return this.bank.keySet().stream()
+                .filter(user -> user.getPassport().equals(passport))
+                .findAny()
+                .orElse(null);
     }
 
     /**
@@ -89,14 +81,10 @@ public class Bank {
      * @return - объект "Счет"
      */
     public Account getAccountByRequisite(User user, String requisite) {
-        Account result = null;
-        for (Account element : this.bank.get(user)) {
-            if (element.getRequisites().equals(requisite)) {
-                result = element;
-                break;
-            }
-        }
-        return result;
+        return this.bank.get(user).stream()
+                .filter(x -> x.getRequisites().equals(requisite))
+                .findAny()
+                .orElse(null);
     }
 
     /**
@@ -106,14 +94,10 @@ public class Bank {
      * @return - список объектов "Счет"
      */
     public List<Account> getUserAccounts(String passport) {
-        List<Account> result = new ArrayList<>();
-        for (User element : this.bank.keySet()) {
-            if (element.getPassport().equals(passport)) {
-                result = this.bank.get(element);
-                break;
-            }
-        }
-        return result;
+        return this.bank.get(this.bank.keySet().stream()
+                .filter(user -> user.getPassport().equals(passport))
+                .findAny()
+                .orElse(null));
     }
 
     /**
