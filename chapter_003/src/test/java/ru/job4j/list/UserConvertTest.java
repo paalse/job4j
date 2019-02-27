@@ -18,10 +18,10 @@ public class UserConvertTest {
 
     @Test
     public void listToHashMapTest() {
-        List<User> users = new ArrayList<User>();
-        users.add(new User(1, "Alex", "Izhevsk"));
-        users.add(new User(2, "Petr", "Moskow"));
-        users.add(new User(3, "Ivan", "Perm"));
+        List<User> users = List.of(
+                new User(1, "Alex", "Izhevsk"),
+                new User(2, "Petr", "Moskow"),
+                new User(3, "Ivan", "Perm"));
         HashMap<Integer, User> result = new HashMap<Integer, User>(new UserConvert().process(users));
         assertThat(result.get(2).getName(), is("Petr"));
     }
