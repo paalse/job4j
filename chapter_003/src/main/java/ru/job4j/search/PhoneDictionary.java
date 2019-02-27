@@ -22,9 +22,9 @@ public class PhoneDictionary {
      * @return Список подощедщих пользователей.
      */
     public List<Person> find(String key) {
-        List<Person> result = new ArrayList<>();
+        var result = new ArrayList<Person>();
 
-        for (Person value : this.persons) {
+        for (var value : this.persons) {
             if ((value.getName().toLowerCase().contains(key.toLowerCase()))
                     || (value.getSurname().toLowerCase().contains(key.toLowerCase()))
                     || (value.getAddress().toLowerCase().contains(key.toLowerCase()))

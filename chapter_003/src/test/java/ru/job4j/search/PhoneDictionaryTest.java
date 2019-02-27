@@ -19,9 +19,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindByName() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("Petr");
+        var persons = phones.find("Petr");
         assertThat(persons.iterator().next().getName(), is("Petr"));
     }
 
@@ -30,9 +30,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindBySurname() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("Arsentev");
+        var persons = phones.find("Arsentev");
         assertThat(persons.iterator().next().getSurname(), is("Arsentev"));
     }
 
@@ -41,9 +41,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindByPhone() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("534872");
+        var persons = phones.find("534872");
         assertThat(persons.iterator().next().getPhone(), is("534872"));
     }
 
@@ -52,9 +52,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindByAddress() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("Bryansk");
+        var persons = phones.find("Bryansk");
         assertThat(persons.iterator().next().getAddress(), is("Bryansk"));
     }
 
@@ -63,9 +63,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindByPartName() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("etr");
+        var persons = phones.find("etr");
         assertThat(persons.iterator().next().getName(), is("Petr"));
     }
 
@@ -74,9 +74,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindByPartSurname() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("sen");
+        var persons = phones.find("sen");
         assertThat(persons.iterator().next().getSurname(), is("Arsentev"));
     }
 
@@ -85,9 +85,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindByPartPhone() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("72");
+        var persons = phones.find("72");
         assertThat(persons.iterator().next().getPhone(), is("534872"));
     }
 
@@ -96,9 +96,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindByPartAddress() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("Bry");
+        var persons = phones.find("Bry");
         assertThat(persons.iterator().next().getAddress(), is("Bryansk"));
     }
 
@@ -107,9 +107,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindByNameCaseSens() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("PeTr");
+        var persons = phones.find("PeTr");
         assertThat(persons.iterator().next().getName(), is("Petr"));
     }
 
@@ -118,9 +118,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindBySurnameCaseSens() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("ArsenteV");
+        var persons = phones.find("ArsenteV");
         assertThat(persons.iterator().next().getSurname(), is("Arsentev"));
     }
 
@@ -129,9 +129,9 @@ public class PhoneDictionaryTest {
      */
     @Test
     public void whenFindByAddressCaseSens() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(new Person("Petr", "Arsentev", "534872", "Bryansk"));
-        List<Person> persons = phones.find("BryANsk");
+        var persons = phones.find("BryANsk");
         assertThat(persons.iterator().next().getAddress(), is("Bryansk"));
     }
 }
