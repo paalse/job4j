@@ -49,12 +49,9 @@ public class Bank {
      */
     public void addAccountToUser(String passport, Account account) {
         int count = 0;
-        for (Account element : this.bank.get(getUserByPasport(passport))) {
-            if (element.getRequisites().equals(account.getRequisites())) {
-                count++;
-                break;
-            }
-        }
+        count = this.bank.get(getUserByPasport(passport)).stream()
+                .filter(x -> x.getRequisites().equals(account.getRequisites()))
+                .collect(Collectors.toList()).size();
         if (count == 0) {
             this.bank.get(getUserByPasport(passport)).add(account);
         }
