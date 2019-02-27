@@ -19,7 +19,7 @@ public class ConvertList2ArrayTest {
     @Test
     public void when7ElementsThen9() {
         ConvertList2Array list = new ConvertList2Array();
-        int[][] result = list.toArray(Arrays.asList(1, 2, 3, 4, 5, 6, 7), 3);
+        int[][] result = list.toArray(List.of(1, 2, 3, 4, 5, 6, 7), 3);
         int[][] expect = {
                 {1, 2, 3},
                 {4, 5, 6},
@@ -31,10 +31,7 @@ public class ConvertList2ArrayTest {
     @Test
     public void when7ElementsThen7() {
         ConvertList2Array list = new ConvertList2Array();
-        int[][] result = list.toArray(
-                Arrays.asList(1, 2, 3, 4, 5, 6, 7),
-                7
-        );
+        int[][] result = list.toArray(List.of(1, 2, 3, 4, 5, 6, 7), 7);
         int[][] expect = {{1}, {2}, {3}, {4}, {5}, {6}, {7}};
         assertThat(result, is(expect));
     }
@@ -42,7 +39,7 @@ public class ConvertList2ArrayTest {
     @Test
     public void when7ElementsThen10() {
         ConvertList2Array list = new ConvertList2Array();
-        int[][] result = list.toArray(Arrays.asList(1, 2, 3, 4, 5, 6, 7), 10);
+        int[][] result = list.toArray(List.of(1, 2, 3, 4, 5, 6, 7), 10);
         int[][] expect = {{1}, {2}, {3}, {4}, {5}, {6}, {7}, {0}, {0}, {0}};
         assertThat(result, is(expect));
     }
@@ -50,7 +47,7 @@ public class ConvertList2ArrayTest {
     @Test
     public void when0ElementsThen3() {
         ConvertList2Array list = new ConvertList2Array();
-        int[][] result = list.toArray(Arrays.asList(), 3);
+        int[][] result = list.toArray(List.of(), 3);
         int[][] expect = {{}, {}, {}};
         assertThat(result, is(expect));
     }
@@ -59,7 +56,7 @@ public class ConvertList2ArrayTest {
     public void when7ElementsThen0() {
         ConvertList2Array list = new ConvertList2Array();
         try {
-            int[][] result = list.toArray(Arrays.asList(1, 2, 3, 4, 5, 6, 7), 0);
+            int[][] result = list.toArray(List.of(1, 2, 3, 4, 5, 6, 7), 0);
             Assert.fail("Expected NullPointerException");
         } catch (NullPointerException e) {
             Assert.assertNotEquals("", e.getMessage());
@@ -69,10 +66,10 @@ public class ConvertList2ArrayTest {
     @Test
     public void whenListOfArrayThenList() {
         ConvertList2Array list = new ConvertList2Array();
-        List<int[]> input = new ArrayList<>();
-        input.add(new int[]{1, 2});
-        input.add(new int[]{3, 4, 5, 6});
-        List<Integer> expect = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<int[]> input = List.of(
+                new int[]{1, 2},
+                new int[]{3, 4, 5, 6});
+        List<Integer> expect = List.of(1, 2, 3, 4, 5, 6);
         List<Integer> result = list.convert(input);
         assertThat(result, is(expect));
     }
@@ -80,10 +77,10 @@ public class ConvertList2ArrayTest {
     @Test
     public void whenListOfArrayThenList1() {
         ConvertList2Array list = new ConvertList2Array();
-        List<int[]> input = new ArrayList<>();
-        input.add(new int[]{1, 2});
-        input.add(new int[]{3, 4, 5, 6});
-        List<Integer> expect = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<int[]> input = List.of(
+                new int[]{1, 2},
+                new int[]{3, 4, 5, 6});
+        List<Integer> expect = List.of(1, 2, 3, 4, 5, 6);
         List<Integer> result = list.convert1(input);
         assertThat(result, is(expect));
     }
