@@ -2,4 +2,3 @@
 [![codecov](https://codecov.io/gh/paalse/job4j/branch/master/graph/badge.svg)](https://codecov.io/gh/paalse/job4j)
 
 http://job4j.ru/
-Выполнить все задания и завершить курс "Стажер" к 15.01.2019
