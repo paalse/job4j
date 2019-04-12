@@ -20,6 +20,8 @@
         <module>chapter_003</module>
         <module>chapter_004</module>
         <module>chapter_101</module>
+        <module>mycode</module>
+        <module>chapter_103</module>
     </modules>
 	
 	<dependencies>
@@ -71,6 +73,13 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>11</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc14 -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc14</artifactId>
+            <version>10.2.0.4.0</version>
         </dependency>
 	</dependencies>
 
