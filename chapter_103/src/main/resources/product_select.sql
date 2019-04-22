@@ -6,7 +6,7 @@ where t.name='СЫР';
 where lower(t.name) like '%мороженное%';
 
 select * from product as t
-where t.expired_date between '2019-05-01 00:00:00' and '2019-06-01 00:00:00';
+where t.expired_date between current_date and current_date+30;
 
 select * from product as t
 order by t.price desc
@@ -20,8 +20,9 @@ select * from type as t
 inner join product as p on p.type_id=t.id
 where t.name='СЫР' or t.name='МОЛОКО'
 
-select * from product p
-where p.cnt < 10;
+select distinct t.name from type as t
+inner join product as p on p.type_id=t.id
+where p.cnt< 10 or p.cnt is null;
 
 select * from type as t
 inner join product as p on p.type_id=t.id;
