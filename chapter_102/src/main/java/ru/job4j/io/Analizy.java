@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Обработка log-файла, с записью результата в другой файл
@@ -12,10 +14,10 @@ import java.io.FileWriter;
  */
 public class Analizy {
     public void unavailable(String source, String target) {
+        List<String> listOut = new ArrayList<>();
 
         try {
             BufferedReader buffIn = new BufferedReader(new FileReader(source));
-            BufferedWriter buffOut = new BufferedWriter(new FileWriter(target));
 
             String line;
             String[] linePrevious = {"", ""};
@@ -39,13 +41,18 @@ public class Analizy {
                 linePrevious = lineCurrent;
 
                 if (!startTime.equals("") && !endTime.equals("")) {
-                    buffOut.write(startTime + ";" + endTime + lineSeparator);
+                    listOut.add(startTime + ";" + endTime + lineSeparator);
                     startTime = "";
                     endTime = "";
                 }
             }
-            buffOut.close();
             buffIn.close();
+
+            BufferedWriter buffOut = new BufferedWriter(new FileWriter(target));
+            for (String element : listOut) {
+                buffOut.write(element);
+            }
+            buffOut.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
