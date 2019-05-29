@@ -37,8 +37,9 @@ public class Search {
         File dir = new File(parent);
         for (File item : Objects.requireNonNull(dir.listFiles())) {
             if (!item.isDirectory()) {
-                if (exts.indexOf(getExtension(item)) != -1)
+                if (exts.indexOf(getExtension(item)) != -1) {
                     result.add(item);
+                }
             }
         }
         return result;
